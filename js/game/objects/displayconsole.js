@@ -7,7 +7,7 @@ var DisplayConsole = (function(){
 		padding: "20px",
 		fontSize: "20px",
 		fontFamily: "monospace",
-		background: "#000",
+//		background: "#000",
 		color: "#cfc"
 	}).appendTo($("body"));
 	

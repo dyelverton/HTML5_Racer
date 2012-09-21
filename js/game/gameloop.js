@@ -1,32 +1,5 @@
 
 
-var ObjectController = (function(){
-
-	var m_cObjects = {};
-	var m_nObjectKey = -1;
-
-	return {
-		Update: function(nDelta, aKeysDown){
-			for (var sKey in m_cObjects)
-			{
-				if (typeof m_cObjects[sKey].Update == "function")
-				{
-					m_cObjects[sKey].Update(nDelta, aKeysDown, function(cCoords, bOk){
-						Log.Log(cCoords, bOk);
-					});
-				}
-			}
-		},
-		Register: function(cObject){
-
-			++m_nObjectKey;
-			m_cObjects[m_nObjectKey] = cObject;
-
-			return m_nObjectKey;
-		}
-	};		
-})();
-
 var Game = (function(){
 	
 	//http://javascript.info/tutorial/animation
@@ -48,7 +21,7 @@ var Game = (function(){
 	
 	var fGameLoop = function(nDelta){
 		
-		cContext.fillStyle = "#5df";
+		cContext.fillStyle = "#eee";
 		cContext.clearRect(0, 0, cCanvasSettings.Width, cCanvasSettings.Height);
 		cContext.fillRect(0, 0, cCanvasSettings.Width, cCanvasSettings.Height);
 		
@@ -65,8 +38,10 @@ var Game = (function(){
 		Width: 64,
 		Height: 64,
 		MaxSpeed: 130,
-		AccRate: 500,
-		Context: cContext
+		AccRate: 80,
+		BreakRate: 250,
+		Context: cContext,
+		Canvas: eCanvas
 	});
 	
 	cCar.Position(600,600);
