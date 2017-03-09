@@ -11,7 +11,7 @@
  * Required Includes: /corejs/time/animationframepolyfill.js
  * 
  */
-
+// Time handler portion 
 var TimeHandler = (function(){
 			
 	var m_nTime = new Date().getTime(),
